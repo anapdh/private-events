@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_03_02_210546) do
 
   create_table "event_attendances", force: :cascade do |t|
-    t.integer "atendee_id", null: false
+    t.integer "attendee_id", null: false
     t.integer "attended_event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2021_03_02_210546) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
