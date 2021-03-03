@@ -20,5 +20,10 @@
   <%= @event.location %>
 </p>
 
+<p>
+  <strong>Creator:</strong>
+  <%= @event.creator.name %>
+</p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
