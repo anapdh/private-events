@@ -25,5 +25,17 @@
   <%= @event.creator.name %>
 </p>
 
+<br>
+
+<strong>Attendees:</strong>
+
+<ol>
+  <% @attendees.each do |attendee| %>
+    <li><%= attendee.name %></li>
+  <% end %>
+</ol>
+
+<br>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
