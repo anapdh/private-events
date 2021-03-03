@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PrivateEvents</title>
+    <title>Private Events</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,10 +11,18 @@
   </head>
 
   <body>
+    <div>
+      <p id="notice"><%= notice %></p>
+      <p id="alert"><%= alert %></p>
+    </div>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  
+    <%= link_to root_path do %>
+      <h1>Private Events</h1><br>
+    <% end %>
+
+    <%= index_links %>
+    <br>
+
     <%= yield %>
   </body>
 </html>
