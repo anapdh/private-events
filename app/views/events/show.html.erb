@@ -24,7 +24,7 @@
 </p>
 
 <br>
-<% if user_signed_in? %>
+<% if user_signed_in? && @event.date > Time.now %>
   <%= render 'attend', attendance: @attendance %>
 <% end %>
 

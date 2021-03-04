@@ -4,7 +4,7 @@ class EventAttendancesController < ApplicationController
     @attendance.attendee_id = current_user.id
 
     respond_to do |format|
-      if EventAttendance.where("attendee_id = ?", @attendance.attendee_id).exists? && EventAttendance.where("attended_event_id = ?", @attendance.attended_event_id).exists?
+      if EventAttendance.where("attendee_id = ? AND attended_event_id = ?", @attendance.attendee_id, @attendance.attended_event_id).exists?
         format.html { redirect_to event_path(@attendance.attended_event_id), alert: "You're already attending this event."}
         format.json { render json: @attendance.errors, status: :unprocessable_entity }
       elsif @attendance.save
