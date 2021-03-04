@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   # GET /events/1 or /events/1.json
   def show
     @attendees = @event.attendees.order("name ASC")
+    @attendance = EventAttendance.new
   end
 
   # GET /events/new
