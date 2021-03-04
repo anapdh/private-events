@@ -3,10 +3,8 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @upcoming_events = Event.where("date > ?", Time.now)
-    @past_events = Event.where("date < ?", Time.now)
-    # @past_events = Event.past_events
-    # @future_events = Event.future_events
+    @upcoming_events = Event.upcoming
+    @past_events = Event.past
   end
 
   # GET /events/1 or /events/1.json
