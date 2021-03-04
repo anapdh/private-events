@@ -19,7 +19,7 @@
 <%= show_event_list(@user_events) %><br>
 
 <strong><u>Event Attendances:</u></strong><br><br>
-  
+
 <strong>Upcoming Events:</strong><ol>
   <% @user_attendance.each do |attendance| %>
     <% if attendance.date > Time.now %>
@@ -35,5 +35,4 @@
   <% end %>
 </ol><br>
 
-<!-- <#%= link_to 'Edit', edit_event_path(@event) %> -->
 <%= link_to 'Back', events_path %>

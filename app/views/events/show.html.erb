@@ -24,16 +24,12 @@
 </p>
 
 <br>
-<% if user_signed_in? && @event.date > Time.now %>
-  <%= render 'attend', attendance: @attendance %>
-<% end %>
+<%= show_attendance_button(@event, @attendance) %>
 
 <strong>Attendees:</strong>
 
 <ol>
-  <% @attendees.each do |attendee| %>
-    <li><%= attendee.name %></li>
-  <% end %>
+  <%= show_attendee_lists(@attendees) %>
 </ol>
 
 <br>

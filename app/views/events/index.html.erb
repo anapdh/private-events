@@ -1,28 +1,12 @@
 <h1>All Events</h1><br>
   <strong><u>Upcoming Events:</u></strong><br>
-    <ul>
-      <% @upcoming_events.each do |event| %>
-        <li><strong>Name:</strong> <%= event.name %></li>
-        <li><strong>Description:</strong> <%= event.description %></li>
-        <li><strong>Date:</strong> <%= event.date %></li>
-        <li><strong>Location:</strong> <%= event.location %></li>
-        <li><strong>Creator:</strong> <%= event.creator.name %>
-        <p><%= link_to 'Show', event %> | <%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        <br>
-      <% end %>
-    </ul>
+  <ul>
+    <%= show_events_list(@upcoming_events) %>
+  </ul>
 
   <strong><u>Past Events:</u></strong><br>
-    <ul>
-      <% @past_events.each do |event| %>
-        <li><strong>Name:</strong> <%= event.name %></li>
-        <li><strong>Description:</strong> <%= event.description %></li>
-        <li><strong>Date:</strong> <%= event.date %></li>
-        <li><strong>Location:</strong> <%= event.location %></li>
-        <li><strong>Creator:</strong> <%= event.creator.name %>
-        <p><%= link_to 'Show', event %> | <%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        <br>
-      <% end %>
-    </ul>
+  <ul>
+    <%= show_events_list(@past_events) %>
+  </ul>
 
 <%= link_to 'New Event', new_event_path %>
