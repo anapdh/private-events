@@ -4,7 +4,6 @@ module EventsHelper
     if event.errors.any?
       out += "<div id=\"error_explanation\"><h2>#{pluralize(event.errors.count,
                                                             'error')} prohibited this event from being saved:</h2><ul>"
-
       event.errors.each do |error|
         out += "<li>#{error.full_message}</li>"
       end
@@ -21,16 +20,16 @@ module EventsHelper
       out += "<li><strong>Date:</strong> #{event.date}</li>"
       out += "<li><strong>Location:</strong> #{event.location}</li>"
       out += "<li><strong>Creator:</strong> #{event.creator.name}</li>"
-      out += "<p>#{link_to 'Show', event} | #{link_to 'Edit', edit_event_path(event)} | #{link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }}</p>"
+      out += "<p>#{link_to 'Show', event}"
+      out += " | #{link_to 'Edit', edit_event_path(event)}"
+      out += " | #{link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }}</p>"
       out += '<br>'
     end
     out.html_safe
   end
 
   def show_attendance_button(event, attendance)
-    if user_signed_in? && event.date > Time.now
-      render 'attend', attendance: attendance
-    end
+    render 'attend', attendance: attendance if user_signed_in? && event.date > Time.now
   end
 
   def show_attendee_lists(attendees)

@@ -18,6 +18,8 @@ Full project description: [The Odin Project](https://www.theodinproject.com/cour
 - Yarn
 - Devise
 - Puma
+- RSpec
+- Capybara
 
 ## Built With
 
