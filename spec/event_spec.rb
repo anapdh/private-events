@@ -9,16 +9,16 @@ RSpec.describe Event, :type => :model do
 end
 
 RSpec.describe Event, :type => :model do
-  user { User.new(id: 1, name:"Foo", username:"foozin", email:"foo@zin.com", password:"123456") }
   subject {
+    User.create(id: 8, name:"Foo", username:"foozin", email:"foo@zin.com", password:"123456")
     Event.new(name: "Anything",
                         description: "Lorem ipsum",
                         date: DateTime.now,
                         location: "USA",
-                        creator_id: user.id)
+                        creator_id: 8)
   }
 
-  it "is valid with name, description, date and location" do
+  it "is valid with name, description, date, location and a creator_id(user logged in)" do
     expect(subject).to be_valid
   end
 
@@ -44,6 +44,11 @@ RSpec.describe Event, :type => :model do
 
   it "is not valid without a location" do
     subject.location = nil
+    expect(subject).to_not be_valid
+  end
+  
+  it "is not valid without a creator_id logged in" do
+    subject.creator_id = 100
     expect(subject).to_not be_valid
   end
 end
