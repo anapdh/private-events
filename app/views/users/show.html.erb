@@ -1,0 +1,38 @@
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<br>
+
+<strong><u>Created Events:</u></strong>
+<%= show_event_list(@user_events) %><br>
+
+<strong><u>Event Attendances:</u></strong><br><br>
+
+<strong>Upcoming Events:</strong><ol>
+  <% @user_attendance.each do |attendance| %>
+    <% if attendance.date > Time.now %>
+      <li><strong><%= attendance.name %></strong>, <%= attendance.location %></li>
+    <% end %>
+  <% end %>
+</ol>
+<strong>Past Events:</strong><ol>
+  <% @user_attendance.each do |attendance| %>
+    <% if attendance.date < Time.now %>
+      <li><strong><%= attendance.name %></strong>, <%= attendance.location %></li>
+    <% end %>
+  <% end %>
+</ol><br>
+
+<%= link_to 'Back', events_path %>

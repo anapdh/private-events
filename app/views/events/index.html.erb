@@ -1,0 +1,12 @@
+<h1>All Events</h1><br>
+  <strong><u>Upcoming Events:</u></strong><br>
+  <ul>
+    <%= show_events_list(@upcoming_events) %>
+  </ul>
+
+  <strong><u>Past Events:</u></strong><br>
+  <ul>
+    <%= show_events_list(@past_events) %>
+  </ul>
+
+<%= link_to 'New Event', new_event_path %>

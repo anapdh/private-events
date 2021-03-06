@@ -1,0 +1,36 @@
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @event.location %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @event.creator.name %>
+</p>
+
+<br>
+<%= show_attendance_button(@event, @attendance) %>
+
+<strong>Attendees:</strong>
+
+<ol>
+  <%= show_attendee_lists(@attendees) %>
+</ol>
+
+<br>
+<%= event_controls(@event) %>
