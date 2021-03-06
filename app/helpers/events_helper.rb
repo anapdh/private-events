@@ -20,9 +20,11 @@ module EventsHelper
       out += "<li><strong>Date:</strong> #{event.date}</li>"
       out += "<li><strong>Location:</strong> #{event.location}</li>"
       out += "<li><strong>Creator:</strong> #{event.creator.name}</li>"
-      out += "<p>#{link_to 'Show', event}"
-      out += " | #{link_to 'Edit', edit_event_path(event)}"
-      out += " | #{link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }}</p>"
+      out += "<p>#{link_to 'Show Event Details', event}"
+      if user_signed_in? && current_user.id == event.creator_id
+        out += " | #{link_to 'Edit', edit_event_path(event)}"
+        out += " | #{link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }}</p>"
+      end
       out += '<br>'
     end
     out.html_safe
@@ -37,6 +39,18 @@ module EventsHelper
     attendees.each do |attendee|
       out += "<li>#{attendee.name}</li>"
     end
+    out.html_safe
+  end
+
+  def event_controls(event)
+    out = ''
+    if user_signed_in? && current_user.id == event.creator_id
+      out += link_to 'Edit', edit_event_path(@event)
+      out += ' | '
+      out += link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }
+      out += ' | '
+    end
+    out += link_to 'Back', events_path
     out.html_safe
   end
 end
