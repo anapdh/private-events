@@ -54,7 +54,7 @@ Now your environment is ready to run the project. Type `rails s`, open your brow
 👩🏼‍💻 **Ana Paula Hübner**
 
 - GitHub: [@anapdh](https://github.com/anapdh)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/anapdh)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/anapdh)
 - Twitter: [@dev_anahub](https://twitter.com/dev_anahub)
 
 👤 **João Paulo Dias**
